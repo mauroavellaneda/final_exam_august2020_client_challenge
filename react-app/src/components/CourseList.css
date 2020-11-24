@@ -1,0 +1,10 @@
+* {
+  list-style: none;
+}
+h1 {
+  text-align: center;
+  color: orange;
+}
+h4 {
+  display: inline;
+}

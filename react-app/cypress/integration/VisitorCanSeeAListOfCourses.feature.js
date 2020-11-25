@@ -10,6 +10,5 @@ describe("Visitor can see a list of courses", () => {
       "Test automation using Cypress"
     );
     cy.get("[data-cy='course-3'").should("contain", "Introduction to Vue3");
-    cy.location("pathname").should("eq", "/index");
   });
 });

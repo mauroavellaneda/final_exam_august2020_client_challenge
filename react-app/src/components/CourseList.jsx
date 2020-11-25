@@ -9,6 +9,7 @@ const CourseList = () => {
     axios
       .get("db.json")
       .then((response) => {
+        debugger;
         setCourses(response.data.courses);
       })
       .catch((error) => {
@@ -18,30 +19,28 @@ const CourseList = () => {
 
   return (
     <div className="container">
-      <ul>
-        {courses.map((course) => (
-          <li data-cy={"course-" + course.id} key={course.id}>
-            <h2> {course.title}</h2>
-            <div> {course.description}</div>
-            <br />
-            <div>
-              <h4>Category:</h4>
-              {course.category}
-            </div>
-            <br />
-            <div>
-              <h4>Instructors:</h4> {course.instructors}
-            </div>
-            <br />
-            <div> {course.info}</div>
-            <br />
-            <div>
-              <h4>Price:</h4> {course.price}
-            </div>
-            <br />
-          </li>
-        ))}
-      </ul>
+      {courses.map((course) => (
+        <div data-cy={"course-" + course.id} key={course.id}>
+          <h2> {course.title}</h2>
+          <div> {course.description}</div>
+          <br />
+          <div>
+            <h4>Category:</h4>
+            {course.category}
+          </div>
+          <br />
+          <div>
+            <h4>Instructors:</h4> {course.instructors}
+          </div>
+          <br />
+          <div> {course.info}</div>
+          <br />
+          <div>
+            <h4>Price:</h4> {course.price}
+          </div>
+          <br />
+        </div>
+      ))}
     </div>
   );
 };

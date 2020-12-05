@@ -4,17 +4,25 @@ import "./CourseList.css";
 
 const CourseList = () => {
   const [courses, setCourses] = useState([]);
+  const [filteredCourses, setFilteredCourses] = useState([]);
 
   useState(() => {
     axios
       .get("db.json")
       .then((response) => {
         setCourses(response.data.courses);
+        setFilteredCourses(response.data.courses);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
+
+  const onClickButton = (chosenCategory) => {
+    setFilteredCourses(
+      courses.filter((course) => course.category === chosenCategory)
+    );
+  };
 
   return (
     <div className="container">

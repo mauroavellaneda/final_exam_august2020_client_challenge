@@ -9,7 +9,6 @@ const CourseList = () => {
     axios
       .get("db.json")
       .then((response) => {
-        debugger;
         setCourses(response.data.courses);
       })
       .catch((error) => {
@@ -19,6 +18,9 @@ const CourseList = () => {
 
   return (
     <div className="container">
+      <div data-cy="list-header">
+        <h1>Course List</h1>
+      </div>
       {courses.map((course) => (
         <div data-cy={"course-" + course.id} key={course.id}>
           <h2> {course.title}</h2>

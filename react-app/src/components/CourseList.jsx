@@ -26,11 +26,10 @@ const CourseList = () => {
 
   return (
     <div className="container">
-      <div data-cy="list-header">
-        <h1>Course List</h1>
-      </div>
+      <h1 data-cy="list-header">Course List</h1>
       {courses.map((course) => (
         <div data-cy={"course-" + course.id} key={course.id}>
+          <button onClick={() => onClickButton(category)}>{category}</button>
           <h2> {course.title}</h2>
           <div> {course.description}</div>
           <br />
